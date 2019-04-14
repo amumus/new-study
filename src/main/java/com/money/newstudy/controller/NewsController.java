@@ -1,5 +1,6 @@
 package com.money.newstudy.controller;
 
+import com.money.newstudy.biz.autoCode.pojo.News;
 import com.money.newstudy.common.ResultObject;
 import com.money.newstudy.dto.NewsDto;
 import com.money.newstudy.service.NewsServcie;
@@ -27,6 +28,16 @@ public class NewsController {
 
     }
 
-
+    @RequestMapping("/mui/news/getNews")
+    @ResponseBody
+    public ResultObject getNews(Integer id){
+        if(id == null){
+            return ResultObject.successResult();
+        }
+        News vo = newsService.getNews(id);
+        ResultObject resultObject = ResultObject.successResult();
+        resultObject.setData(vo);
+        return resultObject;
+    }
 
 }

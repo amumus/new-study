@@ -30,4 +30,9 @@ public class NewsServiceImpl implements NewsServcie {
         map.put("count",count);
         return map;
     }
+
+    @Override
+    public News getNews(Integer id) {
+        return newsMapper.selectByPrimaryKey(id);
+    }
 }

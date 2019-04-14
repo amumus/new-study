@@ -2,12 +2,12 @@ package com.money.newstudy.biz.autoCode.pojo;
 
 import java.io.Serializable;
 
-public class ScoreTask implements Serializable {
+public class Favorites implements Serializable {
     private Integer id;
 
-    private Integer score;
+    private Integer userId;
 
-    private String remark;
+    private Integer newsId;
 
     private static final long serialVersionUID = 1L;
 
@@ -19,20 +19,20 @@ public class ScoreTask implements Serializable {
         this.id = id;
     }
 
-    public Integer getScore() {
-        return score;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setScore(Integer score) {
-        this.score = score;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
-    public String getRemark() {
-        return remark;
+    public Integer getNewsId() {
+        return newsId;
     }
 
-    public void setRemark(String remark) {
-        this.remark = remark == null ? null : remark.trim();
+    public void setNewsId(Integer newsId) {
+        this.newsId = newsId;
     }
 
     @Override
@@ -42,8 +42,8 @@ public class ScoreTask implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", score=").append(score);
-        sb.append(", remark=").append(remark);
+        sb.append(", userId=").append(userId);
+        sb.append(", newsId=").append(newsId);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

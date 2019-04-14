@@ -1,34 +1,19 @@
 package com.money.newstudy.biz.autoCode.pojo;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class User implements Serializable {
     private Integer id;
 
-    private String identityCode;
+    private String username;
 
     private String password;
 
+    private String image;
+
     private String email;
 
-    private String name;
-
-    private String userName;
-
-    private String phone;
-
-    private String politicalStatus;
-
-    private String headImg;
-
-    private String college;
-
-    private String major;
-
-    private String validataCode;
-
-    private Date outdate;
+    private String preference;
 
     private static final long serialVersionUID = 1L;
 
@@ -40,12 +25,12 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    public String getIdentityCode() {
-        return identityCode;
+    public String getUsername() {
+        return username;
     }
 
-    public void setIdentityCode(String identityCode) {
-        this.identityCode = identityCode == null ? null : identityCode.trim();
+    public void setUsername(String username) {
+        this.username = username == null ? null : username.trim();
     }
 
     public String getPassword() {
@@ -56,6 +41,14 @@ public class User implements Serializable {
         this.password = password == null ? null : password.trim();
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image == null ? null : image.trim();
+    }
+
     public String getEmail() {
         return email;
     }
@@ -64,76 +57,12 @@ public class User implements Serializable {
         this.email = email == null ? null : email.trim();
     }
 
-    public String getName() {
-        return name;
+    public String getPreference() {
+        return preference;
     }
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName == null ? null : userName.trim();
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone == null ? null : phone.trim();
-    }
-
-    public String getPoliticalStatus() {
-        return politicalStatus;
-    }
-
-    public void setPoliticalStatus(String politicalStatus) {
-        this.politicalStatus = politicalStatus == null ? null : politicalStatus.trim();
-    }
-
-    public String getHeadImg() {
-        return headImg;
-    }
-
-    public void setHeadImg(String headImg) {
-        this.headImg = headImg == null ? null : headImg.trim();
-    }
-
-    public String getCollege() {
-        return college;
-    }
-
-    public void setCollege(String college) {
-        this.college = college == null ? null : college.trim();
-    }
-
-    public String getMajor() {
-        return major;
-    }
-
-    public void setMajor(String major) {
-        this.major = major == null ? null : major.trim();
-    }
-
-    public String getValidataCode() {
-        return validataCode;
-    }
-
-    public void setValidataCode(String validataCode) {
-        this.validataCode = validataCode == null ? null : validataCode.trim();
-    }
-
-    public Date getOutdate() {
-        return outdate;
-    }
-
-    public void setOutdate(Date outdate) {
-        this.outdate = outdate;
+    public void setPreference(String preference) {
+        this.preference = preference == null ? null : preference.trim();
     }
 
     @Override
@@ -143,18 +72,11 @@ public class User implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", identityCode=").append(identityCode);
+        sb.append(", username=").append(username);
         sb.append(", password=").append(password);
+        sb.append(", image=").append(image);
         sb.append(", email=").append(email);
-        sb.append(", name=").append(name);
-        sb.append(", userName=").append(userName);
-        sb.append(", phone=").append(phone);
-        sb.append(", politicalStatus=").append(politicalStatus);
-        sb.append(", headImg=").append(headImg);
-        sb.append(", college=").append(college);
-        sb.append(", major=").append(major);
-        sb.append(", validataCode=").append(validataCode);
-        sb.append(", outdate=").append(outdate);
+        sb.append(", preference=").append(preference);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

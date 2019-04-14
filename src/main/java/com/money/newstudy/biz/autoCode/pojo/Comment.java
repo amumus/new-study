@@ -20,6 +20,8 @@ public class Comment implements Serializable {
 
     private Integer parentUserId;
 
+    private Integer like;
+
     private String commentContent;
 
     private static final long serialVersionUID = 1L;
@@ -88,6 +90,14 @@ public class Comment implements Serializable {
         this.parentUserId = parentUserId;
     }
 
+    public Integer getLike() {
+        return like;
+    }
+
+    public void setLike(Integer like) {
+        this.like = like;
+    }
+
     public String getCommentContent() {
         return commentContent;
     }
@@ -110,6 +120,7 @@ public class Comment implements Serializable {
         sb.append(", rootId=").append(rootId);
         sb.append(", userId=").append(userId);
         sb.append(", parentUserId=").append(parentUserId);
+        sb.append(", like=").append(like);
         sb.append(", commentContent=").append(commentContent);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");

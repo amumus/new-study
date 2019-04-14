@@ -16,7 +16,13 @@ public class News implements Serializable {
 
     private Date created;
 
-    private Boolean state;
+    private Integer type;
+
+    private String videourl;
+
+    private String content;
+
+    private String preference;
 
     private static final long serialVersionUID = 1L;
 
@@ -68,12 +74,36 @@ public class News implements Serializable {
         this.created = created;
     }
 
-    public Boolean getState() {
-        return state;
+    public Integer getType() {
+        return type;
     }
 
-    public void setState(Boolean state) {
-        this.state = state;
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
+    public String getVideourl() {
+        return videourl;
+    }
+
+    public void setVideourl(String videourl) {
+        this.videourl = videourl == null ? null : videourl.trim();
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content == null ? null : content.trim();
+    }
+
+    public String getPreference() {
+        return preference;
+    }
+
+    public void setPreference(String preference) {
+        this.preference = preference == null ? null : preference.trim();
     }
 
     @Override
@@ -88,7 +118,10 @@ public class News implements Serializable {
         sb.append(", image=").append(image);
         sb.append(", author=").append(author);
         sb.append(", created=").append(created);
-        sb.append(", state=").append(state);
+        sb.append(", type=").append(type);
+        sb.append(", videourl=").append(videourl);
+        sb.append(", content=").append(content);
+        sb.append(", preference=").append(preference);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

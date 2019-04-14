@@ -10,6 +10,7 @@
     <result column="root_id" property="rootId" jdbcType="INTEGER" />
     <result column="user_id" property="userId" jdbcType="INTEGER" />
     <result column="parent_user_id" property="parentUserId" jdbcType="INTEGER" />
+    <result column="like" property="like" jdbcType="INTEGER" />
     <result column="comment_content" property="commentContent" jdbcType="LONGVARCHAR" />
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
@@ -19,12 +20,12 @@
   <insert id="insert" parameterType="com.money.newstudy.biz.autoCode.pojo.Comment" >
     insert into comment (id, type, target_id, 
       parent_id, created, root_id, 
-      user_id, parent_user_id, comment_content
-      )
+      user_id, parent_user_id, like, 
+      comment_content)
     values (#{id,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, #{targetId,jdbcType=INTEGER}, 
       #{parentId,jdbcType=INTEGER}, #{created,jdbcType=TIMESTAMP}, #{rootId,jdbcType=INTEGER}, 
-      #{userId,jdbcType=INTEGER}, #{parentUserId,jdbcType=INTEGER}, #{commentContent,jdbcType=LONGVARCHAR}
-      )
+      #{userId,jdbcType=INTEGER}, #{parentUserId,jdbcType=INTEGER}, #{like,jdbcType=INTEGER}, 
+      #{commentContent,jdbcType=LONGVARCHAR})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.money.newstudy.biz.autoCode.pojo.Comment" >
     update comment
@@ -35,18 +36,19 @@
       root_id = #{rootId,jdbcType=INTEGER},
       user_id = #{userId,jdbcType=INTEGER},
       parent_user_id = #{parentUserId,jdbcType=INTEGER},
+      like = #{like,jdbcType=INTEGER},
       comment_content = #{commentContent,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select id, type, target_id, parent_id, created, root_id, user_id, parent_user_id, 
-    comment_content
+    like, comment_content
     from comment
     where id = #{id,jdbcType=INTEGER}
   </select>
   <select id="selectAll" resultMap="BaseResultMap" >
     select id, type, target_id, parent_id, created, root_id, user_id, parent_user_id, 
-    comment_content
+    like, comment_content
     from comment
   </select>
 </mapper>

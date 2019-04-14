@@ -8,7 +8,10 @@
     <result column="image" property="image" jdbcType="VARCHAR" />
     <result column="author" property="author" jdbcType="VARCHAR" />
     <result column="created" property="created" jdbcType="TIMESTAMP" />
-    <result column="state" property="state" jdbcType="BIT" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="videoUrl" property="videourl" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="LONGVARCHAR" />
+    <result column="preference" property="preference" jdbcType="LONGVARCHAR" />
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from news
@@ -17,10 +20,12 @@
   <insert id="insert" parameterType="com.money.newstudy.biz.autoCode.pojo.News" >
     insert into news (id, title, second_title, 
       image, author, created, 
-      state)
+      type, videoUrl, content, 
+      preference)
     values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{secondTitle,jdbcType=VARCHAR}, 
       #{image,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, #{created,jdbcType=TIMESTAMP}, 
-      #{state,jdbcType=BIT})
+      #{type,jdbcType=INTEGER}, #{videourl,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR}, 
+      #{preference,jdbcType=LONGVARCHAR})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.money.newstudy.biz.autoCode.pojo.News" >
     update news
@@ -29,16 +34,21 @@
       image = #{image,jdbcType=VARCHAR},
       author = #{author,jdbcType=VARCHAR},
       created = #{created,jdbcType=TIMESTAMP},
-      state = #{state,jdbcType=BIT}
+      type = #{type,jdbcType=INTEGER},
+      videoUrl = #{videourl,jdbcType=VARCHAR},
+      content = #{content,jdbcType=LONGVARCHAR},
+      preference = #{preference,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select id, title, second_title, image, author, created, state
+    select id, title, second_title, image, author, created, type, videoUrl, content, 
+    preference
     from news
     where id = #{id,jdbcType=INTEGER}
   </select>
   <select id="selectAll" resultMap="BaseResultMap" >
-    select id, title, second_title, image, author, created, state
+    select id, title, second_title, image, author, created, type, videoUrl, content, 
+    preference
     from news
   </select>
 </mapper>

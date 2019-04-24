@@ -48,6 +48,7 @@ public class MyLikeController {
     @RequestMapping("/mui/favorites/getMyFavorites")
     @ResponseBody
     public ResultObject getMyFavorites(FavoritesDto favoritesDto){
+        favoritesDto.setPageStart(favoritesDto.getPageStart() * favoritesDto.getPageNum());
         if(favoritesDto.getUserId() == null){
             return ResultObject.failResult();
         }

@@ -9,4 +9,6 @@ import java.util.List;
 public interface MyNewsMapper {
     List<News> selectNews(NewsDto vo);
     int selectNewsCount(NewsDto vo);
+
+    List<News> selectByNewsIds(List<Integer> list);
 }

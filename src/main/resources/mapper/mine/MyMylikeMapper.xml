@@ -20,4 +20,14 @@
         delete from favorites
         where user_id = #{userId} and news_id = #{newsId}
     </delete>
+    <select id="selectMyFavoritesByUserId" resultType="com.money.newstudy.vo.FavoritesVo"
+            parameterType="com.money.newstudy.biz.autoCode.pojo.Favorites">
+        select * from favorites where user_id = #{userId}
+        ORDER BY id limit #{pageStart},#{pageNum} ;
+    </select>
+    <select id="selectMyFavoritesByUserIdCount" resultType="java.lang.Integer"
+            parameterType="com.money.newstudy.biz.autoCode.pojo.Favorites">
+        select count(*) from favorites where user_id = #{userId};
+    </select>
+
 </mapper>

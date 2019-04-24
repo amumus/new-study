@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.money.newstudy.biz.mapper.MyMylikeMapper" >
+    <select id="exitMyLike" resultType="java.lang.Integer"
+            parameterType="com.money.newstudy.biz.autoCode.pojo.Mylike">
+        select count(*) from myLike where user_id = #{userId} and news_id = #{newsId};
+    </select>
+
+    <delete id="deleteMylikeByUserIdAndNewsId" parameterType="com.money.newstudy.biz.autoCode.pojo.Mylike">
+        delete from myLike
+        where user_id = #{userId} and news_id = #{newsId}
+    </delete>
+
+    <select id="exitFavorites" resultType="java.lang.Integer"
+            parameterType="com.money.newstudy.biz.autoCode.pojo.Favorites">
+        select count(*) from favorites where user_id = #{userId} and news_id = #{newsId};
+    </select>
+
+    <delete id="deleteFavoritesByUserIdAndNewsId" parameterType="com.money.newstudy.biz.autoCode.pojo.Favorites">
+        delete from favorites
+        where user_id = #{userId} and news_id = #{newsId}
+    </delete>
+</mapper>

@@ -62,7 +62,7 @@
             <!--&lt;!&ndash; 数据库表主键 &ndash;&gt;-->
             <!--&lt;!&ndash;<generatedKey column="id" sqlStatement="Mysql" identity="true" />&ndash;&gt;-->
         <!--</table>-->
-        <table tableName="content"></table>
+        <table tableName="myLike"></table>
         <!--<table tableName="news_content"></table>-->
         <!--<table tableName="score_task"></table>-->
         <!--<table tableName="user_score"></table>-->

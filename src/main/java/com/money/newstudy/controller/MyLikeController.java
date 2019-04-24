@@ -3,6 +3,7 @@ package com.money.newstudy.controller;
 import com.money.newstudy.biz.autoCode.pojo.Favorites;
 import com.money.newstudy.biz.autoCode.pojo.Mylike;
 import com.money.newstudy.common.ResultObject;
+import com.money.newstudy.dto.FavoritesDto;
 import com.money.newstudy.service.MylikeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -44,4 +45,15 @@ public class MyLikeController {
         return resultObject;
     }
 
+    @RequestMapping("/mui/favorites/getMyFavorites")
+    @ResponseBody
+    public ResultObject getMyFavorites(FavoritesDto favoritesDto){
+        if(favoritesDto.getUserId() == null){
+            return ResultObject.failResult();
+        }
+        ResultObject resultObject = ResultObject.successResult();
+//        点赞返回1，取消点赞返回0
+        resultObject.setData(mylikeService.getMyFavorites(favoritesDto));
+        return resultObject;
+    }
 }

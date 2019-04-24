@@ -5,9 +5,13 @@ import com.money.newstudy.biz.autoCode.mapper.MylikeMapper;
 import com.money.newstudy.biz.autoCode.pojo.Favorites;
 import com.money.newstudy.biz.autoCode.pojo.Mylike;
 import com.money.newstudy.biz.mapper.MyMylikeMapper;
+import com.money.newstudy.dto.FavoritesDto;
 import com.money.newstudy.service.MylikeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Map;
 
 @Service
 public class MylikeServiceImpl implements MylikeService {
@@ -47,5 +51,12 @@ public class MylikeServiceImpl implements MylikeService {
             myMylikeMapper.deleteFavoritesByUserIdAndNewsId(favorites);
             return 0;
         }
+    }
+
+    @Override
+    public Map getMyFavorites(FavoritesDto favoritesDto) {
+        List<Favorites> myMylikeMapper = null;
+
+        return null;
     }
 }

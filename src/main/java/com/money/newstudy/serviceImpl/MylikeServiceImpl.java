@@ -68,17 +68,23 @@ public class MylikeServiceImpl implements MylikeService {
         for(FavoritesVo f : myMylikeList){
             newsIdList.add(f.getNewsId());
         }
-        List<News> newsList = myNewsMapper.selectByNewsIds(newsIdList);
-        Map<Integer,News> newsMap = new HashMap<>();
-        for(News n : newsList){
-            newsMap.put(n.getId(),n);
+        List<News> newsList = null;
+        if(!newsIdList.isEmpty()){
+            newsList = myNewsMapper.selectByNewsIds(newsIdList);
+            Map<Integer,News> newsMap = new HashMap<>();
+            for(News n : newsList){
+                newsMap.put(n.getId(),n);
+            }
+            for(FavoritesVo f : myMylikeList){
+                f.setNews(newsMap.get(f.getNewsId()));
+            }
+            result.put("list",myMylikeList);
+            Integer myMylikeCount = myMylikeMapper.selectMyFavoritesByUserIdCount(favoritesDto);
+            result.put("count",myMylikeCount);
+        }else{
+            result.put("list",null);
+            result.put("count",0);
         }
-        for(FavoritesVo f : myMylikeList){
-            f.setNews(newsMap.get(f.getNewsId()));
-        }
-        result.put("list",myMylikeList);
-        Integer myMylikeCount = myMylikeMapper.selectMyFavoritesByUserIdCount(favoritesDto);
-        result.put("count",myMylikeCount);
         return result;
     }
 }

@@ -4,13 +4,13 @@ import com.money.newstudy.biz.autoCode.pojo.Favorites;
 import com.money.newstudy.biz.autoCode.pojo.News;
 
 public class FavoritesVo extends Favorites {
-    News news;
+    NewsVo newsVo;
 
-    public News getNews() {
-        return news;
+    public NewsVo getNewsVo() {
+        return newsVo;
     }
 
-    public void setNews(News news) {
-        this.news = news;
+    public void setNewsVo(NewsVo newsVo) {
+        this.newsVo = newsVo;
     }
 }

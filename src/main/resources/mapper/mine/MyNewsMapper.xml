@@ -58,7 +58,7 @@
             and (author like  CONCAT('%',#{keyword},'%') or title like  CONCAT('%',#{keyword},'%'))
         </if>
     </select>
-    <select id="selectByNewsIds" parameterType="java.util.List" resultType="com.money.newstudy.biz.autoCode.pojo.News">
+    <select id="selectByNewsIds" parameterType="java.util.List" resultType="com.money.newstudy.vo.NewsVo">
         select * from `news` WHERE  id IN
         <foreach collection="list" item="id" index="index" open="(" close=")" separator=",">
             #{id}

@@ -11,6 +11,7 @@ import com.money.newstudy.biz.mapper.MyNewsMapper;
 import com.money.newstudy.dto.FavoritesDto;
 import com.money.newstudy.service.MylikeService;
 import com.money.newstudy.vo.FavoritesVo;
+import com.money.newstudy.vo.NewsVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -68,15 +69,18 @@ public class MylikeServiceImpl implements MylikeService {
         for(FavoritesVo f : myMylikeList){
             newsIdList.add(f.getNewsId());
         }
-        List<News> newsList = null;
+        List<NewsVo> newsList = null;
         if(!newsIdList.isEmpty()){
             newsList = myNewsMapper.selectByNewsIds(newsIdList);
-            Map<Integer,News> newsMap = new HashMap<>();
-            for(News n : newsList){
+            Map<Integer,NewsVo> newsMap = new HashMap<>();
+            for(NewsVo n : newsList){
                 newsMap.put(n.getId(),n);
             }
             for(FavoritesVo f : myMylikeList){
-                f.setNews(newsMap.get(f.getNewsId()));
+                NewsVo n = newsMap.get(f.getNewsId());
+                Integer like = myMylikeMapper.selectNewsFavoritesCount(n.getId());
+                n.setLikeNum(like);
+                f.setNewsVo(n);
             }
             result.put("list",myMylikeList);
             Integer myMylikeCount = myMylikeMapper.selectMyFavoritesByUserIdCount(favoritesDto);

@@ -19,4 +19,6 @@ public interface MyMylikeMapper {
     List<FavoritesVo> selectMyFavoritesByUserId(FavoritesDto favoritesDto);
 
     Integer selectMyFavoritesByUserIdCount(FavoritesDto favoritesDto);
+
+    Integer selectNewsFavoritesCount(Integer id);
 }

@@ -29,5 +29,8 @@
             parameterType="com.money.newstudy.biz.autoCode.pojo.Favorites">
         select count(*) from favorites where user_id = #{userId};
     </select>
-
+    <select id="selectNewsFavoritesCount" resultType="java.lang.Integer"
+            parameterType="java.lang.Integer">
+        SELECT COUNT(*) FROM favorites where news_id = #{id}
+    </select>
 </mapper>

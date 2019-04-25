@@ -2,6 +2,8 @@ package com.money.newstudy.biz.mapper;
 
 import com.money.newstudy.biz.autoCode.pojo.News;
 import com.money.newstudy.dto.NewsDto;
+import com.money.newstudy.vo.NewsVo;
+
 import java.util.List;
 
 //@Mapper
@@ -10,5 +12,5 @@ public interface MyNewsMapper {
     List<News> selectNews(NewsDto vo);
     int selectNewsCount(NewsDto vo);
 
-    List<News> selectByNewsIds(List<Integer> list);
+    List<NewsVo> selectByNewsIds(List<Integer> list);
 }

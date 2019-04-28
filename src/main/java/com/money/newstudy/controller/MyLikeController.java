@@ -54,7 +54,7 @@ public class MyLikeController {
         }
         ResultObject resultObject = ResultObject.successResult();
 //        点赞返回1，取消点赞返回0
-        resultObject.setData(mylikeService.getMyFavorites(favoritesDto));
+        resultObject.setData(mylikeService.getMyFavorites2(favoritesDto));
         return resultObject;
     }
 }

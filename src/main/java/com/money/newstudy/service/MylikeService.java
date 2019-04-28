@@ -12,4 +12,6 @@ public interface MylikeService {
     Integer addFavorites(Favorites favorites);
 
     Map getMyFavorites(FavoritesDto favoritesDto);
+
+    Map getMyFavorites2(FavoritesDto favoritesDto);
 }

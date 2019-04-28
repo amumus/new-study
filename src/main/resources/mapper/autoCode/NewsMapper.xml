@@ -10,6 +10,8 @@
     <result column="created" property="created" jdbcType="TIMESTAMP" />
     <result column="type" property="type" jdbcType="INTEGER" />
     <result column="videoUrl" property="videourl" jdbcType="VARCHAR" />
+    <result column="likeNum" property="likenum" jdbcType="INTEGER" />
+    <result column="favorites" property="favorites" jdbcType="INTEGER" />
     <result column="content" property="content" jdbcType="LONGVARCHAR" />
     <result column="preference" property="preference" jdbcType="LONGVARCHAR" />
   </resultMap>
@@ -20,12 +22,14 @@
   <insert id="insert" parameterType="com.money.newstudy.biz.autoCode.pojo.News" >
     insert into news (id, title, second_title, 
       image, author, created, 
-      type, videoUrl, content, 
-      preference)
+      type, videoUrl, likeNum, 
+      favorites, content, preference
+      )
     values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{secondTitle,jdbcType=VARCHAR}, 
       #{image,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, #{created,jdbcType=TIMESTAMP}, 
-      #{type,jdbcType=INTEGER}, #{videourl,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR}, 
-      #{preference,jdbcType=LONGVARCHAR})
+      #{type,jdbcType=INTEGER}, #{videourl,jdbcType=VARCHAR}, #{likenum,jdbcType=INTEGER}, 
+      #{favorites,jdbcType=INTEGER}, #{content,jdbcType=LONGVARCHAR}, #{preference,jdbcType=LONGVARCHAR}
+      )
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.money.newstudy.biz.autoCode.pojo.News" >
     update news
@@ -36,19 +40,21 @@
       created = #{created,jdbcType=TIMESTAMP},
       type = #{type,jdbcType=INTEGER},
       videoUrl = #{videourl,jdbcType=VARCHAR},
+      likeNum = #{likenum,jdbcType=INTEGER},
+      favorites = #{favorites,jdbcType=INTEGER},
       content = #{content,jdbcType=LONGVARCHAR},
       preference = #{preference,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select id, title, second_title, image, author, created, type, videoUrl, content, 
-    preference
+    select id, title, second_title, image, author, created, type, videoUrl, likeNum, 
+    favorites, content, preference
     from news
     where id = #{id,jdbcType=INTEGER}
   </select>
   <select id="selectAll" resultMap="BaseResultMap" >
-    select id, title, second_title, image, author, created, type, videoUrl, content, 
-    preference
+    select id, title, second_title, image, author, created, type, videoUrl, likeNum, 
+    favorites, content, preference
     from news
   </select>
 </mapper>

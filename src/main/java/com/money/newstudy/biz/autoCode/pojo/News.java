@@ -22,6 +22,10 @@ public class News implements Serializable {
 
     private String videourl;
 
+    private Integer likenum;
+
+    private Integer favorites;
+
     private String content;
 
     private String preference;
@@ -92,6 +96,22 @@ public class News implements Serializable {
         this.videourl = videourl == null ? null : videourl.trim();
     }
 
+    public Integer getLikenum() {
+        return likenum;
+    }
+
+    public void setLikenum(Integer likenum) {
+        this.likenum = likenum;
+    }
+
+    public Integer getFavorites() {
+        return favorites;
+    }
+
+    public void setFavorites(Integer favorites) {
+        this.favorites = favorites;
+    }
+
     public String getContent() {
         return content;
     }
@@ -122,6 +142,8 @@ public class News implements Serializable {
         sb.append(", created=").append(created);
         sb.append(", type=").append(type);
         sb.append(", videourl=").append(videourl);
+        sb.append(", likenum=").append(likenum);
+        sb.append(", favorites=").append(favorites);
         sb.append(", content=").append(content);
         sb.append(", preference=").append(preference);
         sb.append(", serialVersionUID=").append(serialVersionUID);

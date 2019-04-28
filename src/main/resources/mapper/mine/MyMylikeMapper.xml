@@ -33,4 +33,20 @@
             parameterType="java.lang.Integer">
         SELECT COUNT(*) FROM favorites where news_id = #{id}
     </select>
+    <select id="selectMyFavoritesByUserIdAndKeyword" resultType="java.util.Map"
+            parameterType="com.money.newstudy.dto.FavoritesDto">
+        select news.* from  favorites,news where favorites.news_id = news.id
+        <if test="keyword != null and keyword != ''">
+         and (news.title like concat('%',#{keyword},'%') or news.author like concat('%',#{keyword},'%') or news.second_title like concat('%',#{keyword},'%'))
+        </if>
+         order by favorites.id desc limit #{pageStart},#{pageNum} ;
+    </select>
+    <select id="selectMyFavoritesByUserIdAndKeywordCount" resultType="java.util.Map"
+            parameterType="com.money.newstudy.dto.FavoritesDto">
+        select count(*) from  favorites,news where favorites.news_id = news.id
+        <if test="keyword != null and keyword != ''">
+            and (news.title like concat('%',#{keyword},'%') or news.author like concat('%',#{keyword},'%') or news.second_title like concat('%',#{keyword},'%'))
+        </if>
+    </select>
+
 </mapper>

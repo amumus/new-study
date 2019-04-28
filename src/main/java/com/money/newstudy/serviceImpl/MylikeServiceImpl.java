@@ -79,7 +79,7 @@ public class MylikeServiceImpl implements MylikeService {
             for(FavoritesVo f : myMylikeList){
                 NewsVo n = newsMap.get(f.getNewsId());
                 Integer like = myMylikeMapper.selectNewsFavoritesCount(n.getId());
-                n.setLikeNum(like);
+                n.setLikenum(like);
                 f.setNewsVo(n);
             }
             result.put("list",myMylikeList);
@@ -89,6 +89,17 @@ public class MylikeServiceImpl implements MylikeService {
             result.put("list",null);
             result.put("count",0);
         }
+        return result;
+    }
+
+    @Override
+    public Map getMyFavorites2(FavoritesDto favoritesDto) {
+        Map result = new HashMap();
+        List<Map> list = myMylikeMapper.selectMyFavoritesByUserIdAndKeyword(favoritesDto);
+
+        Integer count = myMylikeMapper.selectMyFavoritesByUserIdAndKeywordCount(favoritesDto);
+        result.put("list",list);
+        result.put("count",count);
         return result;
     }
 }

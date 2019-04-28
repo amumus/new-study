@@ -65,6 +65,11 @@
         </foreach>
 
     </select>
-
+    <update id="updateNewsLikeNumber" parameterType="java.util.Map">
+        update `news` set likeNum = likeNum + #{val}  where id = #{newsId};
+    </update>
+    <update id="updateFavoritesNumber" parameterType="java.util.Map">
+        update `news` set favorites = favorites + #{val}  where id = #{newsId};
+    </update>
 
 </mapper>

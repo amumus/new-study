@@ -40,10 +40,16 @@ public class MylikeServiceImpl implements MylikeService {
     @Override
     public Integer addMyLike(Mylike mylike) {
         Integer exitMyLike = myMylikeMapper.exitMyLike(mylike);
+        Map map = new HashMap();
+        map.put("newsId",mylike.getNewsId());
         //未给改文章点过赞
         if(exitMyLike == 0){
+            map.put("val",1);
+            myNewsMapper.updateNewsLikeNumber(map);
             return mylikeMapper.insert(mylike);
         }else{//点过赞的
+            map.put("val",-1);
+            myNewsMapper.updateNewsLikeNumber(map);
             myMylikeMapper.deleteMylikeByUserIdAndNewsId(mylike);
             return 0;
         }
@@ -52,10 +58,16 @@ public class MylikeServiceImpl implements MylikeService {
     @Override
     public Integer addFavorites(Favorites favorites) {
         Integer exitMyLike = myMylikeMapper.exitFavorites(favorites);
+        Map map = new HashMap();
+        map.put("newsId",favorites.getNewsId());
         //未给改文章点过赞
         if(exitMyLike == 0){
+            map.put("val",1);
+            myNewsMapper.updateFavoritesNumber(map);
             return favoritesMapper.insert(favorites);
         }else{//点过赞的
+            map.put("val",-1);
+            myNewsMapper.updateFavoritesNumber(map);
             myMylikeMapper.deleteFavoritesByUserIdAndNewsId(favorites);
             return 0;
         }

@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface MyUserMapper {
     List<User> findByIds(List<Integer> list);
+
+    User login(User user);
 }

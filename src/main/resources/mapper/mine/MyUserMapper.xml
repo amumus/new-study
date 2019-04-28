@@ -8,4 +8,9 @@
             #{id}
         </foreach>
     </select>
+
+    <select id="login" parameterType="com.money.newstudy.biz.autoCode.pojo.User"
+            resultType="com.money.newstudy.biz.autoCode.pojo.User">
+        select * from user where username = #{username} and password = #{password}
+    </select>
 </mapper>

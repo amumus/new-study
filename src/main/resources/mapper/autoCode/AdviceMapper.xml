@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.money.newstudy.biz.autoCode.mapper.AdviceMapper" >
+  <resultMap id="BaseResultMap" type="com.money.newstudy.biz.autoCode.pojo.Advice" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="image" property="image" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="score" property="score" jdbcType="INTEGER" />
+    <result column="created" property="created" jdbcType="TIMESTAMP" />
+    <result column="advice" property="advice" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.money.newstudy.biz.autoCode.pojo.Advice" >
+    insert into advice (id, image, email, 
+      score, created, advice
+      )
+    values (#{id,jdbcType=INTEGER}, #{image,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{score,jdbcType=INTEGER}, #{created,jdbcType=TIMESTAMP}, #{advice,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, image, email, score, created, advice
+    from advice
+  </select>
+</mapper>

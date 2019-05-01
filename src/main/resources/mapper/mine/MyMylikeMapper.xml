@@ -41,7 +41,7 @@
         </if>
          order by favorites.id desc limit #{pageStart},#{pageNum} ;
     </select>
-    <select id="selectMyFavoritesByUserIdAndKeywordCount" resultType="java.util.Map"
+    <select id="selectMyFavoritesByUserIdAndKeywordCount" resultType="java.lang.Integer"
             parameterType="com.money.newstudy.dto.FavoritesDto">
         select count(*) from  favorites,news where favorites.news_id = news.id
         <if test="keyword != null and keyword != ''">

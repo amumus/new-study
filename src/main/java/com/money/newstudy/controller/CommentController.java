@@ -21,6 +21,7 @@ public class CommentController {
     @RequestMapping("/mui/comment/getCommentListByIdAndType")
     @ResponseBody
     public ResultObject getCommentListByIDAndType(CommentDto commentDto){
+        commentDto.setPageStart(commentDto.getPageNum() * commentDto.getPageStart());
         ResultObject resultObject = ResultObject.successResult();
         Map map = commentService.getCommentListByIdAndType(commentDto);
         resultObject.setData(map);

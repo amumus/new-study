@@ -35,7 +35,7 @@
     </select>
     <select id="selectMyFavoritesByUserIdAndKeyword" resultType="java.util.Map"
             parameterType="com.money.newstudy.dto.FavoritesDto">
-        select news.* from  favorites,news where favorites.news_id = news.id
+        select news.* from  favorites,news where favorites.news_id = news.id and user_id = #{userId}
         <if test="keyword != null and keyword != ''">
          and (news.title like concat('%',#{keyword},'%') or news.author like concat('%',#{keyword},'%') or news.second_title like concat('%',#{keyword},'%'))
         </if>
@@ -43,7 +43,7 @@
     </select>
     <select id="selectMyFavoritesByUserIdAndKeywordCount" resultType="java.lang.Integer"
             parameterType="com.money.newstudy.dto.FavoritesDto">
-        select count(*) from  favorites,news where favorites.news_id = news.id
+        select count(*) from  favorites,news where favorites.news_id = news.id and user_id = #{userId}
         <if test="keyword != null and keyword != ''">
             and (news.title like concat('%',#{keyword},'%') or news.author like concat('%',#{keyword},'%') or news.second_title like concat('%',#{keyword},'%'))
         </if>

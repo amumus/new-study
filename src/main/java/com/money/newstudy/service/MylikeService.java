@@ -14,4 +14,6 @@ public interface MylikeService {
     Map getMyFavorites(FavoritesDto favoritesDto);
 
     Map getMyFavorites2(FavoritesDto favoritesDto);
+
+    Map getIfMyFavoritesOrMyLike(FavoritesDto favoritesDto);
 }

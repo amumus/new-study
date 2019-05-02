@@ -27,4 +27,8 @@ public interface MyMylikeMapper {
     List<Map> selectMyFavoritesByUserIdAndKeyword(FavoritesDto favoritesDto);
 
     Integer selectMyFavoritesByUserIdAndKeywordCount(FavoritesDto favoritesDto);
+
+    Integer isMyLike(FavoritesDto favoritesDto);
+
+    Integer isMyFavoritest(FavoritesDto favoritesDto);
 }

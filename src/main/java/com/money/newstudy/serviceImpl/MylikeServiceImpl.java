@@ -114,4 +114,14 @@ public class MylikeServiceImpl implements MylikeService {
         result.put("count",count);
         return result;
     }
+
+    @Override
+    public Map getIfMyFavoritesOrMyLike(FavoritesDto favoritesDto) {
+        Map result = new HashMap();
+        Integer isMyFavoritest = myMylikeMapper.isMyFavoritest(favoritesDto);
+        Integer isMyLike = myMylikeMapper.isMyLike(favoritesDto);
+        result.put("myFavoritest",isMyFavoritest);
+        result.put("myMylike",isMyLike);
+        return result;
+    }
 }

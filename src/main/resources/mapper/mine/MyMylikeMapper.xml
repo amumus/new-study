@@ -48,5 +48,13 @@
             and (news.title like concat('%',#{keyword},'%') or news.author like concat('%',#{keyword},'%') or news.second_title like concat('%',#{keyword},'%'))
         </if>
     </select>
+    <select id="isMyLike" parameterType="com.money.newstudy.dto.FavoritesDto"
+            resultType="java.lang.Integer">
+        select count(*) from myLike where user_id = #{userId} and news_id =#{newsId}
+    </select>
+    <select id="isMyFavoritest" parameterType="com.money.newstudy.dto.FavoritesDto"
+            resultType="java.lang.Integer">
+        select count(*) from favorites where user_id = #{userId} and news_id =#{newsId}
+    </select>
 
 </mapper>

@@ -57,4 +57,13 @@ public class MyLikeController {
         resultObject.setData(mylikeService.getMyFavorites2(favoritesDto));
         return resultObject;
     }
+    @RequestMapping("/mui/favorites/getIfMyFavoritesOrMyLike")
+    @ResponseBody
+    public ResultObject getIfMyFavoritesOrMyLike(FavoritesDto favoritesDto){
+        ResultObject resultObject = ResultObject.successResult();
+        resultObject.setData(mylikeService.getIfMyFavoritesOrMyLike(favoritesDto));
+        return resultObject;
+    }
+
+
 }
